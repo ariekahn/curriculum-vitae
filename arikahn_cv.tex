@@ -41,6 +41,17 @@
 \DeclareNameAlias{sortname}{given-family}
 \addbibresource{publications_annotated.bib}
 
+\DeclareSourcemap{
+  \maps[datatype=bibtex]{
+    \map{
+      \step[fieldsource=eprinttype,
+            match=bioRxiv,
+            final]
+      \step[fieldset=keywords, fieldvalue=preprint]
+    }
+  }
+}
+
 % Bold all highlight annotated names
 \renewcommand*{\mkbibnamegiven}[1]{%
   \ifitemannotation{highlight}
@@ -127,11 +138,15 @@ Designed framework for BCI-based control of simulated robotic prostheses
 %   PUBLICATIONS
 %----------------------------------------------------------------------------------------
 
-\begin{rSection}{Publications}
+\begin{rSection}{Preprints}
 % Add everything to the bibliography
 \nocite{*}
 % And print it without a section header
-\printbibliography[heading=none]
+\printbibliography[heading=none, keyword=preprint]
+\end{rSection}
+
+\begin{rSection}{Publications}
+\printbibliography[heading=none, notkeyword=preprint]
 \end{rSection}
 
 %----------------------------------------------------------------------------------------
