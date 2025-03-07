@@ -45,8 +45,8 @@
   \maps[datatype=bibtex]{
     \map{
       \step[fieldsource=eprinttype,
-            match=bioRxiv,
-            final]
+	    match=\regexp{(bioRxiv|PsyArXiv)},
+	    final]
       \step[fieldset=keywords, fieldvalue=preprint]
     }
   }
